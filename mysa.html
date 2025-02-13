@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>≽ܫ≼mysa≽ܫ≼</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        button {
+            font-size: 1.5em;
+            cursor: pointer;
+            background-color: #ff0000;
+            color: rgb(0, 0, 0);
+            font-family: "Courier New";
+        }
+        #title {
+            margin-top: 10px;
+            font-size: 1.5em;
+            color: rgb(0, 0, 0);
+            font-family: "Courier New"; 
+        }
+        #image {
+            display: none;
+            max-width: 100%;
+            height: auto;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        #text {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5em;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #optionA {
+            font-size: 20px;
+            background-color: aliceblue;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #optionB {
+            font-size: 20px;
+            background-color: aliceblue;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #name{
+            font-family: 'Courier New', Courier, monospace;
+        }
+    
+    </style>
+</head>
+<body>
+    <p id="name"><b>////////////////////////////////m////////////////y////////////////s////////////////a////////////////</b></p>
+    <button id="myButton" onclick="showImage()"><b>start</b></button>
+    <img id="image" src="CW.png" alt="Displayed Image">
+    <div id="text"><b>>hello there...</b> <br><br>
+    <div id="opt">
+        <button id="optionA" onclick="chooseOption('A')"><b>hi...</b></button><br>
+        <button id="optionB" onclick="chooseOption('B')"><b>who tf r u???</b></button>
+    </div>
+    <script>
+        function showImage() {
+            
+            const button = document.getElementById('myButton');
+            const image = document.getElementById('image');
+            const text = document.getElementById('text');
+            
+            button.style.display = 'none';
+
+            fadeIn(image,100);
+            fadeIn(text, 300); 
+            fadeIn(optionA, 300); 
+            fadeIn(optionB, 300);
+           
+        }
+
+        function fadeIn(element, intervalSpeed = 100) {
+            element.style.display = 'block';
+            element.style.opacity = 0;
+
+            const fadeEffect = setInterval(function () {
+                if (element.style.opacity < 1) {
+                    element.style.opacity = parseFloat(element.style.opacity) + 0.1;
+                } else {
+                    clearInterval(fadeEffect);
+                }
+            }, intervalSpeed);
+        
+            setTimeout(function () {
+                optionA.style.display = 'block';
+                optionB.style.display = 'block';
+            }, 1000);
+        }
+
+        function chooseOption(option) {
+           
+            if (option === 'A') {
+                window.location.href = 'pageA.html';
+            } else if (option === 'B') {
+                window.location.href = 'pageB.html';
+            }
+        }
+        
+    </script>
+
+</body>
+</html>
